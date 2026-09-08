@@ -1,10 +1,11 @@
 "use client";
-
 import { useState } from "react";
 import { socialLinks } from "../data/portfolio";
+import { useTheme } from "./ThemeProvider";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const links = [
     { name: "About", href: "#about" },
@@ -16,68 +17,48 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 border-b border-black/10 bg-[#f7f6f2]/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-        <a
-          href="#home"
-          className="serif text-xl font-semibold tracking-tight"
-        >
-          RU.
-        </a>
+    <header className="fixed top-0 left-0 right-0 z-50 border-bottom" style={{ background: 'var(--bg)', backdropFilter: 'blur(12px)' }}>
+      <div className="container flex items-center justify-between py-4">
+        <a href="#home" className="serif text-2xl font-bold">RU.</a>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden md:flex items-center gap-8">
           {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="mono text-xs uppercase tracking-wider text-neutral-600 transition hover:text-black"
-            >
+            <a key={link.name} href={link.href} className="mono text-xs uppercase tracking-wider text-muted hover-underline">
               {link.name}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 md:flex">
-          <a
-            href={socialLinks.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mono text-xs"
-          >
+        <div className="hidden md:flex items-center gap-5">
+          <a href={socialLinks.github} target="_blank" rel="noopener" className="mono text-xs text-muted hover:text-fg transition">
             GitHub
           </a>
-
-          <a
-            href={socialLinks.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mono text-xs"
-          >
+          <a href={socialLinks.linkedin} target="_blank" rel="noopener" className="mono text-xs text-muted hover:text-fg transition">
             LinkedIn
           </a>
+          <button onClick={toggleTheme} className="p-1.5 rounded-full hover:bg-muted transition" aria-label="Toggle theme">
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
         </div>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="mono text-xs md:hidden"
-        >
-          {open ? "CLOSE" : "MENU"}
+        <button onClick={() => setOpen(!open)} className="md:hidden text-fg">
+          {open ? "✕" : "☰"}
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-black/10 bg-[#f7f6f2] px-6 py-6 md:hidden">
+        <div className="border-bottom px-6 py-6 md:hidden" style={{ background: 'var(--bg)' }}>
           <nav className="flex flex-col gap-5">
             {links.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="mono text-sm uppercase"
-              >
+              <a key={link.name} href={link.href} onClick={() => setOpen(false)} className="mono text-sm uppercase text-fg">
                 {link.name}
               </a>
             ))}
+            <div className="flex gap-4 mt-4">
+              <a href={socialLinks.github} target="_blank" rel="noopener" className="mono text-xs text-muted">GitHub</a>
+              <a href={socialLinks.linkedin} target="_blank" rel="noopener" className="mono text-xs text-muted">LinkedIn</a>
+              <button onClick={toggleTheme} className="text-muted">{theme === "dark" ? "☀️" : "🌙"}</button>
+            </div>
           </nav>
         </div>
       )}

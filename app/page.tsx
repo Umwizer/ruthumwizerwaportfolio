@@ -4,9 +4,9 @@ import About from "../app/components/About";
 import Skills from "../app/components/Skills";
 import Experience from "../app/components/Experience";
 import Education from "../app/components/Education";
-// import Projects from "../app/components/Projects";
 import Contact from "../app/components/contact";
 import CurrentBuilding from "../app/components/CurrentBuilding";
+import Projects from "./components/Projects";
 export default function Home() {
   return (
     <>
@@ -23,7 +23,7 @@ export default function Home() {
 
         <Education />
 
-        {/* <Projects /> */}
+        <Projects />
         <CurrentBuilding />
         <Contact />
       </main>

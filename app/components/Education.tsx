@@ -1,51 +1,43 @@
-import { experience } from "../data/portfolio";
+  import { education } from "../data/portfolio";
+  export default function Education() {
+    return (
+      <section id="education" className="border-t border-black/10 bg-white px-6 py-28">
+        <div className="mx-auto max-w-4xl">
+          <p className="section-number mb-16 text-neutral-400">04 / EDUCATION</p>
 
-export default function Experience() {
-  return (
-    <section id="experience" className="border-t border-black/10 px-6 py-28">
-      <div className="mx-auto max-w-7xl">
-        <p className="section-number mb-16">03 / EXPERIENCE</p>
+          <div className="space-y-6">
+            {education.map((item, index) => (
+              <article
+                key={item.institution}
+                className="group relative border-l-4 border-amber-500/30 pl-6 transition hover:border-amber-500"
+              >
+                <div className="grid gap-2 md:grid-cols-[180px_1fr] md:gap-8">
+                  <div>
+                    <p className="mono text-xs font-medium tracking-wider text-neutral-500">
+                      {item.period}
+                    </p>
+                    <p className="mono text-xs text-neutral-400">{item.location}</p>
+                    <span className="mono mt-3 inline-block text-[11px] text-neutral-300">
+                      0{index + 1}
+                    </span>
+                  </div>
 
-        <div className="space-y-0">
-          {experience.map((item, index) => (
-            <article
-              key={`${item.company}-${item.role}`}
-              className="grid border-t border-black/10 py-10 md:grid-cols-[180px_1fr_280px] md:gap-12"
-            >
-              <div className="mono text-xs uppercase tracking-wider text-neutral-500">
-                {item.period}
-              </div>
-
-              <div>
-                <h3 className="serif text-3xl">{item.role}</h3>
-
-                <p className="mt-2 text-sm text-neutral-500">
-                  {item.company}
-                </p>
-
-                <p className="mt-6 max-w-2xl leading-7 text-neutral-600">
-                  {item.description}
-                </p>
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-2 md:mt-0 md:justify-end md:content-start">
-                {item.technologies.map((technology) => (
-                  <span
-                    key={technology}
-                    className="mono h-fit border border-black/10 px-2 py-1 text-[10px] uppercase"
-                  >
-                    {technology}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mono mt-4 text-xs text-neutral-400 md:col-start-1">
-                0{index + 1}
-              </div>
-            </article>
-          ))}
+                  <div>
+                    <h3 className="serif text-2xl font-bold leading-tight text-neutral-900">
+                      {item.institution}
+                    </h3>
+                    <p className="mt-0.5 text-sm font-medium text-neutral-700">
+                      {item.degree}
+                    </p>
+                    <p className="mt-3 max-w-2xl leading-relaxed text-neutral-600">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }

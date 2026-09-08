@@ -59,22 +59,25 @@ export const experience = [
   },
 ];
 
+
 export const education = [
   {
     period: "2024 – Present",
     institution: "Adventist University of Central Africa",
-    qualification: "BSc Software Engineering",
+    degree: "BSc in Software Engineering",
     location: "Kigali, Rwanda",
+    description:
+      "Comprehensive 4-year program covering software architecture, data structures, algorithms, and enterprise web development.",
   },
-
   {
     period: "2024",
     institution: "SheCanCODE",
-    qualification: "Certificate in Backend Development",
+    degree: "Backend Development Certificate",
     location: "Rwanda",
+    description:
+      "Intensive backend bootcamp covering RESTful API design, database integration, and deployment with Node.js.",
   },
 ];
-
 export const skills = [
   {
     category: "Backend",
