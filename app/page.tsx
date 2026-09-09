@@ -1,40 +1,42 @@
-import Navbar from "../app/components/NavBar"
-import Hero from "../app/components/Hero";
-import About from "../app/components/About";
-import Skills from "../app/components/Skills";
-import Experience from "../app/components/Experience";
-import Education from "../app/components/Education";
-import Contact from "../app/components/contact";
-import CurrentBuilding from "../app/components/CurrentBuilding";
+// app/page.tsx
+import Navbar from "./components/NavBar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Education from "./components/Education";    // ← Education section
+import Experience from "./components/Experience";  // ← Experience section
+import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import Contact from "./components/contact";
+
 export default function Home() {
   return (
     <>
       <Navbar />
-
       <main>
         <Hero />
-
         <About />
-
+        <Education />      {/* ← Shows education data */}
+        <Experience />     {/* ← Shows experience data */}
         <Skills />
-
-        <Experience />
-
-        <Education />
-
         <Projects />
-        <CurrentBuilding />
         <Contact />
       </main>
-
-      <footer className="border-t border-black/10 px-6 py-8">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 md:flex-row">
-          <p className="mono text-xs text-neutral-500">
+      <footer style={{
+        borderTop: '1px solid var(--border)',
+        padding: '2rem 1.5rem',
+      }}>
+        <div style={{
+          maxWidth: '1100px',
+          margin: '0 auto',
+          display: 'flex',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap' as const,
+          gap: '1rem',
+        }}>
+          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', color: 'var(--muted-fg)' }}>
             © {new Date().getFullYear()} Ruth Umwizerwa
           </p>
-
-          <p className="mono text-xs text-neutral-500">
+          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', color: 'var(--muted-fg)' }}>
             Software Engineering · Kigali, Rwanda
           </p>
         </div>

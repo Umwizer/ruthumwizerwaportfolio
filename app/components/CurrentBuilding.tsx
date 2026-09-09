@@ -1,36 +1,23 @@
-export default function CurrentlyBuilding() {
+export default function CurrentBuilding() {
   return (
-    <section className="border-t border-black/10 px-6 py-28">
-      <div className="mx-auto max-w-7xl">
-        <p className="section-number mb-12">
-          06 / CURRENTLY BUILDING
-        </p>
-
-        <div className="grid gap-12 md:grid-cols-[1fr_300px]">
+    <section className="section-padding">
+      <div className="container">
+        <p className="section-number mb-12">06 / CURRENTLY BUILDING</p>
+        <div className="grid gap-12 md:grid-cols-[1fr_280px]">
           <div>
-            <p className="serif max-w-4xl text-4xl leading-tight md:text-6xl">
-              Moving deeper into backend engineering.
+            <p className="serif text-4xl md:text-6xl leading-tight max-w-4xl">
+              Moving deeper into <span className="text-accent">backend engineering.</span>
             </p>
-
-            <p className="mt-8 max-w-2xl leading-8 text-neutral-600">
-              Currently expanding my backend knowledge with Java and Spring
-              Boot while continuing to explore cloud technologies, software
-              testing and reliable system design.
+            <p className="text-muted leading-8 mt-8 max-w-2xl">
+              Currently expanding my backend knowledge with Java and Spring Boot while continuing to explore cloud technologies, software testing and reliable system design.
             </p>
           </div>
-
-          <div className="border-l border-black/10 pl-8">
-            <p className="mono text-xs uppercase tracking-widest text-neutral-400">
-              Exploring
-            </p>
-
-            <div className="mt-6 space-y-4">
-              <p>Java</p>
-              <p>Spring Boot</p>
-              <p>REST APIs</p>
-              <p>Docker</p>
-              <p>Cloud</p>
-              <p>Software Testing</p>
+          <div className="card">
+            <p className="mono text-xs uppercase tracking-wider text-muted">Exploring</p>
+            <div className="mt-4 space-y-2">
+              {["Java", "Spring Boot", "REST APIs", "Docker", "Cloud", "Software Testing"].map((item) => (
+                <p key={item} className="text-sm font-medium">{item}</p>
+              ))}
             </div>
           </div>
         </div>
