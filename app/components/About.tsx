@@ -145,7 +145,6 @@ export default function About() {
         <div style={styles.grid}>
           <div style={styles.left}>
             <div style={styles.photoWrapper}>
-              <span style={styles.photoPlaceholder}>📸</span>
               <img src="/profile.jpg" alt="Ruth Umwizerwa" style={{ width: '150%', height: '100%', objectFit: 'cover' }} />
             </div>
             <p style={styles.photoLabel}>Ruth Umwizerwa · Software Engineer</p>
