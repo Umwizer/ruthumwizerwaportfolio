@@ -14,7 +14,6 @@ export default function Contact() {
     const formData = new FormData(form);
 
     try {
-      // ✅ FIXED: Removed the extra .com
       const response = await fetch("https://formsubmit.co/ruthumwizerwa@gmail.com", {
         method: "POST",
         body: formData,
@@ -140,7 +139,7 @@ export default function Contact() {
               </button>
 
               {formStatus === "sent" && (
-                <p className="form-feedback sent">Thanks — I'll get back to you soon.</p>
+                <p className="form-feedback sent">Thanks , I'll get back to you soon.</p>
               )}
               {formStatus === "error" && (
                 <p className="form-feedback error">Something went wrong. Please try again.</p>

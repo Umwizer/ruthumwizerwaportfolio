@@ -200,8 +200,6 @@ export default function About() {
           border-color: var(--accent);
           box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
-
-        /* ─── Responsive ─── */
         @media (max-width: 1024px) {
           .about-grid {
             grid-template-columns: 1fr 1fr !important;

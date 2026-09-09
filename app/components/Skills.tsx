@@ -1,6 +1,5 @@
-// app/components/Skills.tsx
-import { skills } from "../data/portfolio";
 
+import { skills } from "../data/portfolio";
 export default function Skills() {
   return (
     <section id="skills" className="skills-section">

@@ -1,4 +1,3 @@
-// app/components/Experience.tsx
 import { experience } from "../data/portfolio";
 
 export default function Experience() {
