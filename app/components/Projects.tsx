@@ -1,39 +1,43 @@
-
 import { projects } from "../data/portfolio";
 
 export default function Projects() {
+  const featuredProjects = projects.filter((p) => p.featured);
+
   return (
     <section id="projects" className="projects-section">
       <div className="projects-container">
-        <span className="section-number">06 / SELECTED WORK</span>
 
-        <div className="projects-list">
-          {projects.map((project) => (
-            <article key={project.title} className="project-row">
-              <span className="project-number">{project.number}</span>
+        <div className="projects-header">
+          <span className="section-number">06 / SELECTED WORK</span>
+          <div className="projects-divider" />
+        </div>
 
-              <div className="project-main">
-                <div className="project-heading">
-                  <h3 className="project-title">{project.title}</h3>
-                  <span className="project-category">
-                    {project.category}
-                  </span>
+        <div className="projects-grid">
+          {featuredProjects.map((project, index) => (
+            <div key={project.title} className="project-card">
+              <div className="project-card-top">
+                <span className="project-number">{project.number}</span>
+              </div>
+
+              <div className="project-card-middle">
+                <div className="project-icon">
+                  {index === 0 ? '◆' : index === 1 ? '●' : index === 2 ? '■' : '▲'}
                 </div>
-
-                <p className="project-description">
-                  {project.description}
-                </p>
-
-                <div className="project-tags">
-                  {project.technologies.map((tech) => (
-                    <span key={tech} className="project-tag">
-                      {tech}
-                    </span>
-                  ))}
+                <div>
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-category">{project.category}</p>
                 </div>
               </div>
 
-              <div className="project-links">
+              <p className="project-description">{project.description}</p>
+
+              <div className="project-tags">
+                {project.technologies.map((tech) => (
+                  <span key={tech} className="project-tag">{tech}</span>
+                ))}
+              </div>
+
+              <div className="project-card-footer">
                 {project.github && project.github !== "#" && (
                   <a
                     href={project.github}
@@ -44,8 +48,7 @@ export default function Projects() {
                     GitHub ↗
                   </a>
                 )}
-
-                {project.live && (
+                {/* {project.live && (
                   <a
                     href={project.live}
                     target="_blank"
@@ -54,9 +57,9 @@ export default function Projects() {
                   >
                     Live ↗
                   </a>
-                )}
+                )} */}
               </div>
-            </article>
+            </div>
           ))}
         </div>
       </div>
@@ -73,9 +76,15 @@ export default function Projects() {
           margin: 0 auto;
         }
 
-        .section-number {
-          display: block;
+        .projects-header {
           margin-bottom: 3rem;
+          display: grid;
+          grid-template-columns: auto 1fr;
+          gap: 2rem;
+          align-items: center;
+        }
+
+        .section-number {
           font-family: 'JetBrains Mono', monospace;
           font-size: 0.7rem;
           letter-spacing: 0.2em;
@@ -84,48 +93,79 @@ export default function Projects() {
           font-weight: 500;
         }
 
-        .project-row {
-          display: grid;
-          grid-template-columns: 60px 1fr 140px;
-          gap: 2rem;
-          padding: 2.5rem 0;
-          border-bottom: 1px solid var(--border);
+        .projects-divider {
+          height: 1px;
+          background: var(--border);
         }
 
-        .project-row:last-child {
-          border-bottom: none;
+        .projects-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
+        }
+
+        .project-card {
+          background: var(--card-bg);
+          border: 1px solid var(--border);
+          border-radius: 16px;
+          padding: 1.75rem;
+          transition: all 0.3s ease;
+          display: grid;
+          grid-template-rows: auto auto 1fr auto auto;
+          gap: 0.75rem;
+        }
+
+        .project-card:hover {
+          transform: translateY(-4px);
+          border-color: var(--accent);
+          box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+        }
+
+        .project-card-top {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          align-items: center;
         }
 
         .project-number {
           font-family: 'JetBrains Mono', monospace;
-          font-size: 0.8rem;
+          font-size: 0.7rem;
           color: var(--muted-fg);
           opacity: 0.4;
         }
 
-        .project-main {
-          display: flex;
-          flex-direction: column;
+        .project-card-middle {
+          display: grid;
+          grid-template-columns: 48px 1fr;
           gap: 0.75rem;
+          align-items: center;
         }
 
-        .project-heading {
+        .project-icon {
+          width: 48px;
+          height: 48px;
+          border-radius: 12px;
+          background: var(--muted);
           display: flex;
-          flex-wrap: wrap;
-          align-items: baseline;
-          gap: 0.75rem;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.4rem;
+          font-weight: 700;
+          color: var(--accent);
+          border: 1px solid var(--border);
         }
 
         .project-title {
           font-family: 'EB Garamond', serif;
-          font-size: 1.8rem;
+          font-size: 1.4rem;
           font-weight: 700;
           color: var(--fg);
+          line-height: 1.2;
         }
 
         .project-category {
           font-family: 'JetBrains Mono', monospace;
-          font-size: 0.7rem;
+          font-size: 0.6rem;
           text-transform: uppercase;
           letter-spacing: 0.05em;
           color: var(--accent);
@@ -133,60 +173,90 @@ export default function Projects() {
 
         .project-description {
           font-family: 'Inter', sans-serif;
-          font-size: 0.95rem;
+          font-size: 0.9rem;
           color: var(--muted-fg);
           line-height: 1.7;
-          max-width: 620px;
+          margin: 0.25rem 0;
         }
 
         .project-tags {
-          display: flex;
-          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(70px, auto));
           gap: 0.5rem;
           margin-top: 0.25rem;
         }
 
         .project-tag {
           font-family: 'JetBrains Mono', monospace;
-          font-size: 0.7rem;
+          font-size: 0.6rem;
           text-transform: uppercase;
+          letter-spacing: 0.04em;
           color: var(--muted-fg);
           border: 1px solid var(--border);
-          padding: 0.35rem 0.6rem;
+          padding: 0.25rem 0.6rem;
           border-radius: 4px;
+          text-align: center;
+          background: var(--muted);
+          transition: border-color 0.3s, color 0.3s;
         }
 
-        .project-links {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          gap: 0.5rem;
-          justify-content: flex-start;
+        .project-tag:hover {
+          border-color: var(--accent);
+          color: var(--fg);
+        }
+
+        .project-card-footer {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          align-items: center;
+          border-top: 1px solid var(--border);
+          padding-top: 0.75rem;
+          margin-top: 0.25rem;
         }
 
         .project-link {
           font-family: 'JetBrains Mono', monospace;
-          font-size: 0.75rem;
-          color: var(--muted-fg);
+          font-size: 0.7rem;
+          color: var(--accent);
           text-decoration: none;
-          transition: color 0.3s;
+          transition: opacity 0.3s;
         }
 
         .project-link:hover {
-          color: var(--accent);
+          opacity: 0.7;
         }
 
         @media (max-width: 768px) {
-          .project-row {
+          .projects-grid {
             grid-template-columns: 1fr;
             gap: 1rem;
-            padding: 2rem 0;
           }
 
-          .project-links {
-            align-items: flex-start;
-            flex-direction: row;
-            gap: 1.25rem;
+          .projects-header {
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+          }
+
+          .project-card {
+            padding: 1.25rem;
+          }
+
+          .project-card-middle {
+            grid-template-columns: 40px 1fr;
+          }
+
+          .project-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+          }
+
+          .project-title {
+            font-size: 1.2rem;
+          }
+
+          .project-tags {
+            grid-template-columns: repeat(auto-fill, minmax(60px, auto));
           }
         }
       `}</style>
