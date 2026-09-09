@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { socialLinks } from "../data/portfolio";
-import { useTheme } from "./ThemeProvider";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   const links = [
     { name: "Home", href: "#home" },
@@ -164,9 +162,6 @@ export default function Navbar() {
               <a href={socialLinks.linkedin} target="_blank" rel="noopener" style={styles.socialLink}>
                 LinkedIn
               </a>
-              <button onClick={toggleTheme} style={{...styles.toggle, width: '36px', height: '36px'}}>
-                {theme === "dark" ? "☀️" : "🌙"}
-              </button>
             </div>
           </nav>
         </div>
