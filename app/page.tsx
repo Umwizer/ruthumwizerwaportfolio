@@ -1,9 +1,9 @@
-// app/page.tsx
+
 import Navbar from "./components/NavBar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Education from "./components/Education";    // ← Education section
-import Experience from "./components/Experience";  // ← Experience section
+import Education from "./components/Education";   
+import Experience from "./components/Experience";  
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/contact";
@@ -15,8 +15,8 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <Education />      {/* ← Shows education data */}
-        <Experience />     {/* ← Shows experience data */}
+        <Education />
+        <Experience />
         <Skills />
         <Projects />
         <Contact />

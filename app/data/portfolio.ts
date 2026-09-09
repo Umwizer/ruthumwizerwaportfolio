@@ -61,7 +61,7 @@ export const experience = [
 
   {
     period: "Apr 2025 – Sep 2025",
-    role: "Coding Coach",
+    role: "Preparatory training program  Coding Coach",
     company: "The Gym",
     description:
       "Guided beginner developers through technical concepts and small projects, encouraging independent problem-solving and practical learning.",
@@ -89,12 +89,12 @@ export const education = [
       "Comprehensive 4-year program covering software architecture, data structures, algorithms, and enterprise web development.",
   },
   {
-    period: "2024",
-    institution: "SheCanCODE",
-    degree: "Backend Development Certificate",
-    location: "Rwanda",
+    period: "2021 – 2023",
+    institution: "College Saint Francois Xavier Apebu Nyamata",
+    degree: "Software Development",
+    location: "Nyamata, Rwanda",
     description:
-      "Intensive backend bootcamp covering RESTful API design, database integration, and deployment with Node.js.",
+      "Focused on foundational software development, programming principles, and practical coding skills.",
   },
 ];
 
@@ -115,6 +115,8 @@ export const skills = [
   "GitHub",
   "Postman",
   "Firebase",
+  "Trello",
+  "Notion"
 ];
 
 export const projects = [
