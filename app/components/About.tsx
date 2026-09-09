@@ -147,16 +147,15 @@ export default function About() {
             <div style={styles.photoWrapper}>
               <img src="/profile.jpg" alt="Ruth Umwizerwa" style={{ width: '150%', height: '100%', objectFit: 'cover' }} />
             </div>
-            <p style={styles.photoLabel}>Ruth Umwizerwa · Software Engineer</p>
+            <p style={styles.photoLabel}>Ruth Umwizerwa · Junior Software Engineer</p>
           </div>
           <div style={styles.middle}>
             <p style={styles.quote}>
-              &quot;I build software that <span style={styles.quoteAccent}>works and feels great.</span>&quot;
+               &quot;I build robust backends, but I make sure the <span style={styles.quoteAccent}>frontend is actually fun to use.</span>&quot;
             </p>
             <p style={styles.description}>
-              I focus on backend development, but I also enjoy building frontend and mobile apps.
-              I'm passionate about clean code, thoughtful design, and building solutions that are
-              both reliable and user‑friendly.
+              I focus on backend development (Java & Spring Boot), but I love popping over to the frontend and mobile side to make things interactive. 
+            I'm a firm believer that clean code, thoughtful design, and a little bit of fun shouldn't be mutually exclusive. I build reliable, user-friendly software that doesn't feel like a chore to click through.
             </p>
           </div>
           <div style={styles.right}>

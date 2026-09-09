@@ -117,7 +117,7 @@ export default function Hero() {
           <span style={styles.nameAccent}>Umwizerwa.</span>
         </h1>
 
-        <p style={styles.role}>Software Engineer</p>
+        <p style={styles.role}>Junior Software Engineer</p>
 
         <p style={styles.description}>
           Building scalable backend systems and intuitive interfaces that 

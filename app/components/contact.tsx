@@ -44,7 +44,7 @@ export default function Contact() {
         <div className="contact-grid">
           <div className="contact-info">
             <h2 className="contact-heading">
-              Let's build something <span className="heading-accent">great.</span>
+              Let's bring your vision to <span className="heading-accent">life.</span>
             </h2>
 
             <p className="contact-subtext">

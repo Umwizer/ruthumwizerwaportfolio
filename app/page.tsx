@@ -36,7 +36,7 @@ export default function Home() {
             © {new Date().getFullYear()} Ruth Umwizerwa
           </p>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', color: 'var(--muted-fg)' }}>
-            Software Engineering · Kigali, Rwanda
+           Junior  Software Engineer · Kigali, Rwanda
           </p>
         </div>
       </footer>
