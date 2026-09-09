@@ -1,5 +1,6 @@
 /* app/globals.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=JetBrains+Mono:wght@400..700&display=swap');
+@import "tailwindcss";
 
 :root {
   --bg: #0a0e1a;

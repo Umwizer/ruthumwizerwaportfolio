@@ -1,6 +1,3 @@
-// app/components/Hero.tsx
-import { contact } from "../data/portfolio";
-
 export default function Hero() {
   const styles = {
     container: {
@@ -110,10 +107,10 @@ export default function Hero() {
   };
 
   return (
-    <section style={styles.container}>
+    <section id="home" style={styles.container}>
       <div style={styles.glow} />
       <div style={styles.content}>
-        <p style={styles.label}>Hello, I'm</p>
+        <p style={styles.label}>Hello, I&apos;m</p>
 
         <h1 style={styles.name}>
           Ruth<br />
@@ -129,7 +126,7 @@ export default function Hero() {
 
         <div style={styles.buttons}>
           <a href="#contact" style={styles.btnPrimary}>Hire Me</a>
-          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" style={styles.btnOutline}>View CV</a>
+          <a href="/Ruth_Umwizerwa_CV.pdf" target="_blank" rel="noopener noreferrer" style={styles.btnOutline}>View CV</a>
         </div>
 
         <div style={styles.scroll}>Scroll ↓</div>

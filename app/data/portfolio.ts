@@ -1,4 +1,3 @@
-
 export const experience = [
   {
     period: "Nov 2024 – Sep 2025",
@@ -150,7 +149,7 @@ export const projects = [
       "TypeScript",
       "Firebase",
     ],
-    github: "#",
+    github: "https://github.com/Umwizer/MaVie",
     featured: true,
   },
 
@@ -183,7 +182,8 @@ export const projects = [
       "Tailwind CSS",
       "Firebase",
     ],
-    github: "#",
+    github: "https://github.com/Umwizer/realsuccessacademy-",
+    live: "https://realsuccessacademy-six.vercel.app",
     featured: true,
   },
 ];

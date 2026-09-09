@@ -7,13 +7,27 @@ export const metadata: Metadata = {
   description: "Ruth Umwizerwa, a Software Engineer focused on backend development.",
 };
 
+const themeScript = `
+(function () {
+  try {
+    var stored = window.localStorage.getItem('theme');
+    var theme = stored === 'light' || stored === 'dark' ? stored : 'dark';
+    document.documentElement.classList.remove('light', 'dark');
+    document.documentElement.classList.add(theme);
+  } catch (e) {}
+})();
+`;
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body suppressHydrationWarning>
         <ThemeProvider>{children}</ThemeProvider>
       </body>

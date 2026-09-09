@@ -72,7 +72,6 @@ export default function About() {
           <div style={styles.divider} />
         </div>
 
-        {/* Right side - content */}
         <div style={styles.right}>
           {/* Highlighted quote */}
           <p style={styles.quote}>

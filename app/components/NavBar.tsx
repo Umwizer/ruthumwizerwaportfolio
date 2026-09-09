@@ -1,4 +1,3 @@
-// app/components/Navbar.tsx
 "use client";
 
 import { useState } from "react";
@@ -138,9 +137,6 @@ export default function Navbar() {
           <a href={socialLinks.linkedin} target="_blank" rel="noopener" style={styles.socialLink}>
             LinkedIn
           </a>
-          <button onClick={toggleTheme} style={styles.toggle}>
-            {theme === "dark" ? "☀️" : "🌙"}
-          </button>
         </div>
 
         <button onClick={() => setOpen(!open)} style={styles.menuButton} className="mobile-menu-btn">
