@@ -1,4 +1,3 @@
-
 export default function About() {
   const styles = {
     section: {
@@ -66,30 +65,15 @@ export default function About() {
   return (
     <section style={styles.section} id="about">
       <div style={styles.container}>
-        {/* Left side - section number */}
         <div style={styles.left}>
           <p style={styles.sectionNumber}>02 About Me</p>
           <div style={styles.divider} />
         </div>
-
         <div style={styles.right}>
-          {/* Highlighted quote */}
           <p style={styles.quote}>
             &quot;I build  <span style={styles.quoteAccent}>reliable and user friendly software .</span>&quot;
           </p>
-
-          {/* Description */}
-          <p style={styles.description}>
-            I'm Ruth Umwizerwa, a Software Engineering student at AUCA with a 
-            strong focus on backend development. I build scalable applications 
-            using Java, Spring Boot, Node.js, while crafting intuitive 
-            user experiences with React and Next.js.
-          </p>
-
-          <p style={styles.descriptionSecond}>
-            I'm passionate about clean code, and building 
-            solutions that are both reliable and user‑friendly .
-          </p>
+          <p style={styles.description}>  I focus on backend development, but I also enjoy building frontend and mobile apps.</p>
         </div>
       </div>
 
