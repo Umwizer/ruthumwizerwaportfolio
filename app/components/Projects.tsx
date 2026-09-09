@@ -1,87 +1,74 @@
-import { contact, socialLinks } from "../data/portfolio";
 
-export default function Contact() {
+import { projects } from "../data/portfolio";
+
+export default function Projects() {
   return (
-    <section id="contact" className="contact-section">
-      <div className="contact-container">
-        <span className="section-number">07 / CONTACT</span>
+    <section id="projects" className="projects-section">
+      <div className="projects-container">
+        <span className="section-number">06 / SELECTED WORK</span>
 
-        <div className="contact-grid">
-          <div className="contact-intro">
-            <h2 className="contact-heading">
-              Have a project in mind, or just want to say hello?
-            </h2>
+        <div className="projects-list">
+          {projects.map((project) => (
+            <article key={project.title} className="project-row">
+              <span className="project-number">{project.number}</span>
 
-            <p className="contact-subtext">
-              I&apos;m always interested in learning, collaborating and
-              working on meaningful software projects.
-            </p>
-          </div>
+              <div className="project-main">
+                <div className="project-heading">
+                  <h3 className="project-title">{project.title}</h3>
+                  <span className="project-category">
+                    {project.category}
+                  </span>
+                </div>
 
-          <div className="contact-details">
-            {/* Email */}
-            <div className="contact-item">
-              <span className="contact-label">Email</span>
+                <p className="project-description">
+                  {project.description}
+                </p>
 
-              <a
-                href={`mailto:${contact.email}`}
-                className="contact-value"
-              >
-                {contact.email}
-              </a>
-            </div>
+                <div className="project-tags">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="project-tag">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
 
-            {/* Phone */}
-            <div className="contact-item">
-              <span className="contact-label">Phone</span>
+              <div className="project-links">
+                {project.github && project.github !== "#" && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    GitHub ↗
+                  </a>
+                )}
 
-              <a
-                href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                className="contact-value"
-              >
-                {contact.phone}
-              </a>
-            </div>
-
-            {/* GitHub */}
-            <div className="contact-item">
-              <span className="contact-label">GitHub</span>
-
-              <a
-                href={socialLinks.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-value"
-              >
-                github.com/Umwizer
-              </a>
-            </div>
-
-            {/* LinkedIn */}
-            <div className="contact-item">
-              <span className="contact-label">LinkedIn</span>
-
-              <a
-                href={socialLinks.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-value"
-              >
-                LinkedIn Profile
-              </a>
-            </div>
-          </div>
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    Live ↗
+                  </a>
+                )}
+              </div>
+            </article>
+          ))}
         </div>
       </div>
 
       <style>{`
-        .contact-section {
-          padding: 5rem 1.5rem 6rem;
+        .projects-section {
+          padding: 5rem 1.5rem;
           border-top: 1px solid var(--border);
           background: var(--bg);
         }
 
-        .contact-container {
+        .projects-container {
           max-width: 1100px;
           margin: 0 auto;
         }
@@ -97,74 +84,112 @@ export default function Contact() {
           font-weight: 500;
         }
 
-        .contact-grid {
+        .project-row {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 4rem;
-        }
-
-        .contact-heading {
-          font-family: 'EB Garamond', serif;
-          font-size: clamp(1.8rem, 3vw, 2.6rem);
-          font-weight: 700;
-          color: var(--fg);
-          line-height: 1.25;
-        }
-
-        .contact-subtext {
-          margin-top: 1.25rem;
-          font-family: 'Inter', sans-serif;
-          font-size: 1rem;
-          line-height: 1.7;
-          color: var(--muted-fg);
-          max-width: 480px;
-        }
-
-        .contact-details {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .contact-item {
-          padding: 1.25rem 0;
-          border-top: 1px solid var(--border);
-          display: flex;
-          flex-direction: column;
-          gap: 0.4rem;
-        }
-
-        .contact-item:last-child {
+          grid-template-columns: 60px 1fr 140px;
+          gap: 2rem;
+          padding: 2.5rem 0;
           border-bottom: 1px solid var(--border);
         }
 
-        .contact-label {
+        .project-row:last-child {
+          border-bottom: none;
+        }
+
+        .project-number {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.8rem;
+          color: var(--muted-fg);
+          opacity: 0.4;
+        }
+
+        .project-main {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .project-heading {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: baseline;
+          gap: 0.75rem;
+        }
+
+        .project-title {
+          font-family: 'EB Garamond', serif;
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: var(--fg);
+        }
+
+        .project-category {
           font-family: 'JetBrains Mono', monospace;
           font-size: 0.7rem;
           text-transform: uppercase;
           letter-spacing: 0.05em;
-          color: var(--muted-fg);
-          opacity: 0.7;
+          color: var(--accent);
         }
 
-        .contact-value {
+        .project-description {
           font-family: 'Inter', sans-serif;
-          font-size: 1.05rem;
-          color: var(--fg);
-          text-decoration: none;
+          font-size: 0.95rem;
+          color: var(--muted-fg);
+          line-height: 1.7;
+          max-width: 620px;
         }
 
-        .contact-value:hover {
+        .project-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          margin-top: 0.25rem;
+        }
+
+        .project-tag {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.7rem;
+          text-transform: uppercase;
+          color: var(--muted-fg);
+          border: 1px solid var(--border);
+          padding: 0.35rem 0.6rem;
+          border-radius: 4px;
+        }
+
+        .project-links {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 0.5rem;
+          justify-content: flex-start;
+        }
+
+        .project-link {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.75rem;
+          color: var(--muted-fg);
+          text-decoration: none;
+          transition: color 0.3s;
+        }
+
+        .project-link:hover {
           color: var(--accent);
         }
 
         @media (max-width: 768px) {
-          .contact-grid {
+          .project-row {
             grid-template-columns: 1fr;
-            gap: 2.5rem;
+            gap: 1rem;
+            padding: 2rem 0;
+          }
+
+          .project-links {
+            align-items: flex-start;
+            flex-direction: row;
+            gap: 1.25rem;
           }
         }
       `}</style>
     </section>
   );
 }
-
